@@ -3,100 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KinPages-IP-Vault | Vetted Movie Treatments & Scripts</title>
+    <title>KinPages IP-VAULT | Secure Motion Picture Marketplace</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0a0a0a; color: #ffffff; font-family: 'Inter', sans-serif; }
-        .gold-gradient { background: linear-gradient(90deg, #d4af37, #f9e29d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .vault-card { background: #161616; border: 1px solid #262626; transition: all 0.3s ease; }
-        .vault-card:hover { border-color: #d4af37; transform: translateY(-5px); }
-        .btn-gold { background-color: #d4af37; color: #000; font-weight: bold; transition: opacity 0.3s; }
-        .btn-gold:hover { opacity: 0.9; }
+        :root { --gold: #D4AF37; --dark: #050505; --card: #111111; }
+        body { background-color: var(--dark); color: #e5e5e5; font-family: 'Inter', sans-serif; }
+        .gold-text { color: var(--gold); }
+        .gold-bg { background-color: var(--gold); color: #000; }
+        .border-gold { border-color: var(--gold); }
+        .glass-nav { background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(10px); }
+        .nda-blur { filter: blur(4px); pointer-events: none; user-select: none; }
+        .vault-table tr { border-bottom: 1px solid #222; transition: background 0.2s; }
+        .vault-table tr:hover { background: rgba(212, 175, 55, 0.05); }
     </style>
 </head>
 <body>
 
-    <nav class="flex justify-between items-center p-6 border-b border-white/10">
-        <div class="text-2xl font-bold tracking-tighter uppercase">KinPages<span class="text-gray-500 text-sm ml-1">IP-VAULT</span></div>
-        <div class="space-x-8 text-sm uppercase tracking-widest hidden md:flex">
-            <a href="#marketplace" class="hover:text-gold-gradient transition">Marketplace</a>
-            <a href="#certification" class="hover:text-gold-gradient transition">Certification</a>
-            <a href="#directors" class="hover:text-gold-gradient transition">For Directors</a>
+    <nav class="glass-nav sticky top-0 z-50 border-b border-white/10 px-6 py-4">
+        <div class="max-w-[1600px] mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-tr from-[#D4AF37] to-[#F9E29D] rounded-lg flex items-center justify-center">
+                    <i class="fa-solid fa-vault text-black text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-tighter block leading-none">KIN PAGES</span>
+                    <span class="text-[10px] tracking-[0.3em] uppercase text-gray-500">IP-VAULT & MARKETPLACE</span>
+                </div>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-bold tracking-widest uppercase text-gray-400">
+                <a href="#" class="hover:text-white transition">The Vault</a>
+                <a href="#" class="hover:text-white transition">Certification Audit</a>
+                <a href="#" class="hover:text-white transition">Realm Pictures</a>
+                <a href="#" class="hover:text-white transition">Production Services</a>
+                <a href="#" class="hover:text-white transition">Pricing</a>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <div class="relative cursor-pointer group">
+                    <i class="fa-solid fa-briefcase text-xl hover:text-white transition"></i>
+                    <span class="absolute -top-2 -right-2 bg-[#D4AF37] text-black text-[10px] font-bold px-1.5 rounded-full">0</span>
+                    <div class="hidden group-hover:block absolute top-8 right-0 w-48 bg-[#1a1a1a] border border-white/10 p-3 text-[10px] rounded shadow-2xl">
+                        Your Acquisition Queue is empty.
+                    </div>
+                </div>
+                <button class="text-xs font-bold px-4 py-2 border border-white/20 rounded hover:bg-white hover:text-black transition">MEMBER LOGIN</button>
+                <button class="gold-bg text-xs font-bold px-6 py-2 rounded">JOIN THE VAULT</button>
+            </div>
         </div>
-        <button class="px-5 py-2 border border-white/20 text-xs rounded-full hover:bg-white hover:text-black transition">MEMBER LOGIN</button>
     </nav>
 
-    <header class="py-24 px-6 text-center max-w-5xl mx-auto">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-            The Industry Standard for <br><span class="gold-gradient">Certified Movie IP.</span>
-        </h1>
-        <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-            A strictly vetted community of writers selling unique treatments and scripts. Powered by <strong>REALM Pictures</strong>. We verify authorship, certify readiness, and connect talent to studios.
-        </p>
-        <div class="flex flex-col md:flex-row justify-center gap-4">
-            <a href="#submit" class="btn-gold px-8 py-4 rounded-md">SUBMIT TREATMENT FOR SALE</a>
-            <a href="#directors" class="px-8 py-4 bg-white/5 border border-white/10 rounded-md hover:bg-white/10">DIRECTOR ACCESS</a>
+    <header class="py-16 px-6 border-b border-white/5 bg-gradient-to-b from-black to-[#050505]">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">The Boardroom for <span class="gold-text italic underline">Original IP</span></h1>
+            <p class="text-gray-500 max-w-2xl mx-auto text-sm md:text-base mb-8">
+                Access is strictly restricted to verified Producers, Directors, and Investment Groups. 
+                All members are legally bound by a non-disclosure agreement (NDA) prior to asset viewing.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <span class="px-3 py-1 rounded-full bg-green-900/30 text-green-400 text-[10px] font-bold border border-green-500/20">● 42 NEW SCRIPTS ADDED TODAY</span>
+                <span class="px-3 py-1 rounded-full bg-blue-900/30 text-blue-400 text-[10px] font-bold border border-blue-500/20">● 18 DIRECTORS ONLINE</span>
+            </div>
         </div>
     </header>
 
-    <section class="py-12 border-y border-white/5 bg-white/[0.02]">
-        <p class="text-center text-xs text-gray-500 uppercase tracking-[0.3em] mb-6">In Strategic Partnership With</p>
-        <div class="flex justify-center items-center gap-12 grayscale opacity-60">
-            <span class="text-2xl font-black italic">REALM PICTURES</span>
-            <span class="text-xl font-bold border-x px-4 border-white/20">KIN PAGES</span>
-            <span class="text-2xl font-serif">STUDIO PIPELINE</span>
-        </div>
-    </section>
-
-    <section id="certification" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="vault-card p-8 rounded-xl">
-                <i class="fa-solid fa-shield-check text-3xl mb-6 text-gold-gradient"></i>
-                <h3 class="text-xl font-bold mb-4">Kin-Certified™ Audit</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Our experts vet every script for structural integrity and marketability. We provide the certification required to set your project up for sale.
-                </p>
+    <main class="max-w-[1600px] mx-auto px-6 py-12">
+        <div class="flex justify-between items-end mb-8">
+            <div>
+                <h2 class="text-2xl font-bold">Live Inventory</h2>
+                <p class="text-gray-500 text-xs uppercase tracking-widest mt-1">Direct from Vetted Kin Pages Members</p>
             </div>
-            <div class="vault-card p-8 rounded-xl">
-                <i class="fa-solid fa-microchip text-3xl mb-6 text-gold-gradient"></i>
-                <h3 class="text-xl font-bold mb-4">True Authorship Check</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    We distinguish between raw AI prompts and transformed human authorship, ensuring your IP is copyright-legal and studio-ready.
-                </p>
-            </div>
-            <div class="vault-card p-8 rounded-xl">
-                <i class="fa-solid fa-clapperboard text-3xl mb-6 text-gold-gradient"></i>
-                <h3 class="text-xl font-bold mb-4">Hybrid Presentations</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">
-                    Listings that feature both Literature (treatments) and Video (proof-of-concept) get priority placement for director review.
-                </p>
+            <div class="flex gap-4">
+                <input type="text" placeholder="Search Genres..." class="bg-[#111] border border-white/10 px-4 py-2 text-sm rounded w-64 focus:border-[#D4AF37] outline-none">
+                <button class="bg-[#222] px-4 py-2 rounded text-xs hover:bg-[#333]">Filters <i class="fa-solid fa-sliders ml-2"></i></button>
             </div>
         </div>
-    </section>
 
-    <section class="py-24 px-6 bg-[#111]">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Are you a Writer or a Director?</h2>
-            <p class="text-gray-400 mb-10">Join the community where the next great cinematic stories are discovered and owned.</p>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="p-10 border border-white/10 rounded-2xl text-left hover:bg-white/[0.03]">
-                    <h4 class="text-xl font-bold mb-2">Writers</h4>
-                    <p class="text-gray-500 text-sm mb-6">Get certified, sell your ownership, or license your ideas for a percentage.</p>
-                    <a href="#" class="text-sm font-bold border-b border-gold-gradient">REGISTER AS WRITER →</a>
-                </div>
-                <div class="p-10 border border-white/10 rounded-2xl text-left hover:bg-white/[0.03]">
-                    <h4 class="text-xl font-bold mb-2">Directors/Investors</h4>
-                    <p class="text-gray-500 text-sm mb-6">Browse vetted, studio-ready IP with clean chains of title and verified authorship.</p>
-                    <a href="#" class="text-sm font-bold border-b border-gold-gradient">REQUEST ACCESS →</a>
+        <div class="bg-[#111] border border-white/10 rounded-xl overflow-hidden relative">
+            
+            <div class="absolute inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+                <div class="bg-[#1a1a1a] p-10 border border-[#D4AF37]/30 rounded-2xl shadow-2xl text-center max-w-md">
+                    <i class="fa-solid fa-lock text-5xl text-[#D4AF37] mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4 uppercase tracking-tighter">NDA & Paid Access Required</h3>
+                    <p class="text-gray-400 text-sm mb-8">
+                        To protect the intellectual property of our members, full treatments and script samples are hidden.
+                        Register as an <strong>Acquisition Executive</strong> to unlock the Vault.
+                    </p>
+                    <div class="space-y-3">
+                        <button class="w-full gold-bg py-3 font-bold rounded">SIGN NDA & JOIN (PAID MEMBERSHIP)</button>
+                        <button class="w-full bg-white/5 py-3 text-xs text-gray-400 rounded">View Sample Metadata Only</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="p-12 border-t border-white/5 text-center text-gray-600 text-xs">
-        <p>&copy; 2026 Kin Pages | Powered by REALM Pictures. All Rights Reserved.</p>
-        <p class="mt-4 italic">Defending Creative Integrity Through Expert Vetting.</p>
+            <table class="w-full text-left vault-table nda-blur">
+                <thead class="bg-white/5 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-500">
+                    <tr>
+                        <th class="p-5">ID #</th>
+                        <th class="p-5">Title / Logline Preview</th>
+                        <th class="p-5">Genre</th>
+                        <th class="p-5">Kin-Score</th>
+                        <th class="p-5">AI Usage</th>
+                        <th class="p-5">Assets</th>
+                        <th class="p-5">Rights</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr>
+                        <td class="p-5 text-[#D4AF37] font-mono">KP-8821</td>
+                        <td class="p-5"><strong>NEON HORIZON</strong><br><span class="text-xs text-gray-500">In a world where memories are currency...</span></td>
+                        <td class="p-5">Sci-Fi / Noir</td>
+                        <td class="p-5"><span class="bg-gold-text border border-[#D4AF37] px-2 py-0.5 rounded text-[10px]">9.4</span></td>
+                        <td class="p-5 text-xs">Hybrid (Transformed)</td>
+                        <td class="p-5 text-gray-500"><i class="fa-solid fa-file-pdf mr-2"></i> <i class="fa-solid fa-video mr-2"></i></td>
+                        <td class="p-5 font-bold text-green-500">AVAILABLE</td>
+                    </tr>
+                    <tr>
+                        <td class="p-5 text-[#D4AF37] font-mono">KP-7742</td>
+                        <td class="p-5"><strong>THE SILENT LEDGER</strong><br><span class="text-xs text-gray-500">A financial hitman discovers a conspiracy...</span></td>
+                        <td class="p-5">Thriller</td>
+                        <td class="p-5"><span class="bg-gold-text border border-[#D4AF37] px-2 py-0.5 rounded text-[10px]">8.9</span></td>
+                        <td class="p-5 text-xs">Pure Authorship</td>
+                        <td class="p-5 text-gray-500"><i class="fa-solid fa-file-pdf mr-2"></i></td>
+                        <td class="p-5 font-bold text-blue-400 text-xs uppercase">OPTION PENDING</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="bg-black border-t border-white/10 pt-20 pb-10 px-6">
+        <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
+            <div class="lg:col-span-1">
+                <h4 class="text-lg font-black tracking-tighter mb-6">KIN PAGES</h4>
+                <p class="text-xs text-gray-500 leading-loose mb-6 italic">
+                    The world’s first verified IP ecosystem ensuring creative defense and authorship transparency in the age of AI.
+                </p>
+                <div class="flex gap-4 text-gray-400">
+                    <i class="fa-brands fa-linkedin hover:text-[#D4AF37] cursor-pointer"></i>
+                    <i class="fa-brands fa-x-twitter hover:text-[#D4AF37] cursor-pointer"></i>
+                    <i class="fa-brands fa-instagram hover:text-[#D4AF37] cursor-pointer"></i>
+                </div>
+            </div>
+
+            <div>
+                <h5 class="text-[10px] uppercase tracking-widest text-white font-bold mb-6">The Ecosystem</h5>
+                <ul class="text-xs space-y-4 text-gray-500">
+                    <li><a href="#" class="hover:text-white transition">About Kin Pages</a></li>
+                    <li><a href="#" class="hover:text-white transition">Realm Pictures Partnership</a></li>
+                    <li><a href="#" class="hover:text-white transition">Brand Ambassadors</a></li>
+                    <li><a href="#" class="hover:text-white transition">Creative Ventures</a></li>
+                    <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-[10px] uppercase tracking-widest text-white font-bold mb-6">For Writers</h5>
+                <ul class="text-xs space-y-4 text-gray-500">
+                    <li><a href="#" class="hover:text-white transition">Submit Treatment</a></li>
+                    <li><a href="#" class="hover:text-white transition">AI Disclosure Protocol</a></li>
+                    <li><a href="#" class="hover:text-white transition">Certification Tiers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Writing Community</a></li>
+                    <li><a href="#" class="hover:text-white transition">Scholarship Program</a></li>
+                    <li><a href="#" class="hover:text-white transition">Talent Representation</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-[10px] uppercase tracking-widest text-white font-bold mb-6">For Acquisition</h5>
+                <ul class="text-xs space-y-4 text-gray-500">
+                    <li><a href="#" class="hover:text-white transition">Request Executive Access</a></li>
+                    <li><a href="#" class="hover:text-white transition">IP Acquisition Queue</a></li>
+                    <li><a href="#" class="hover:text-white transition">Bulk Licensing</a></li>
+                    <li><a href="#" class="hover:text-white transition">Corporate Memberships</a></li>
+                    <li><a href="#" class="hover:text-white transition">Vetting Standards</a></li>
+                    <li><a href="#" class="hover:text-white transition">Direct Hire Pipeline</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-[10px] uppercase tracking-widest text-white font-bold mb-6">Legal & Help</h5>
+                <ul class="text-xs space-y-4 text-gray-500">
+                    <li><a href="#" class="hover:text-white transition">Standard NDA</a></li>
+                    <li><a href="#" class="hover:text-white transition">Terms of Sale</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">IP Rights Protection</a></li>
+                    <li><a href="#" class="hover:text-white transition">Chain of Title Audit</a></li>
+                    <li><a href="#" class="hover:text-white transition">Support Center</a></li>
+                    <li><a href="#" class="hover:text-white transition">Fraud Reporting</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-white/5 pt-10 text-center">
+            <p class="text-[10px] text-gray-600 uppercase tracking-widest font-bold">
+                &copy; 2026 KIN PAGES LLC in association with REALM PICTURES. ALL ASSETS BLOCKCHAIN-TIMESTAMPED.
+            </p>
+        </div>
     </footer>
 
 </body>
